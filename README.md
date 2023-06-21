@@ -1,2 +1,7 @@
-# Buscador de Dados IONIC
--> Esse aplicativo busca em arquivos de csv (que já estão instalados junto com o app) dados em arquivos com grande volume de caracteres
+# Projetos com Números
+-> Esse aplicativo vai trazer um mini portfólio por si só
+-> Atualmente estou trabalhando na Calculadora
+
+# Coming Soon
+Leitor de grandes dados e devolver o resultado filtrado
+Rastreador de Qualidade de Vida

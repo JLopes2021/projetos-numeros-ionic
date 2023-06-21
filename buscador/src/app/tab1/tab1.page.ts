@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {Papa} from 'papaparse';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab1',
@@ -9,45 +7,37 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Tab1Page {
 
-  movies: any[] = [];
+  constructor() {
 
-  constructor(private http: HttpClient) {}
-
-  searchInCSV(file: File) {
-    Papa.parse(file, {
-      complete: (results: { data: any[]; }) => {
-        this.movies = results.data;
-      }
-    });
+  }
+  digits: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0','(',')'];
+  operators: string[] = ['+', '-', '*', '/',];
+  displayValue: string = '';
+  resultado: any;
+  addDigit(digit: string) {
+    this.displayValue += digit;
   }
 
-  ngOnInit() {
-    this.http.get('assets/filmes.csv', { responseType: 'text' })
-      .subscribe(
-        data => {
-          Papa.parse(data, {
-            complete: (results: { data: any[]; }) => {
-              this.movies = results.data;
-            }
-          });
-        },
-        error => {
-          console.log('Erro ao carregar o arquivo:', error);
-        }
-      );
+  setOperator(operator: string) {
+    this.displayValue += operator;
   }
 
-  searchMovies(keyword: string) {
-    if (keyword.trim() === '') {
-      // Se a palavra-chave estiver vazia, exiba todos os filmes
-      this.movies = Papa.unparse(this.movies);
-    } else {
-      // Filtra os filmes com base na palavra-chave fornecida
-      const filteredMovies = this.movies.filter(movie =>
-        movie[1].toLowerCase().includes(keyword.toLowerCase()) ||  // title
-        movie[2].toLowerCase().includes(keyword.toLowerCase())     // genres
-      );
-      this.movies = Papa.unparse(filteredMovies);
+  addSquareRoot() {
+    this.displayValue += 'Math.sqrt(';
+  }
+  clear() {
+    this.displayValue = '';
+    this.resultado = null;
+  }
+
+  calculate() {
+    try {
+      this.resultado = eval(this.displayValue);
+    } catch (error) {
+      this.resultado = null;
     }
   }
+
 }
+
+

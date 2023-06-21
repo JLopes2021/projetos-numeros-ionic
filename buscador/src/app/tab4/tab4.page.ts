@@ -9,4 +9,9 @@ export class Tab3Page {
 
   constructor() {}
 
+    nome: string = 'Jefferson Lopes';
+    cargo: string = 'Desenvolvedor Full Stack Júnior';
+    githubLink: string = 'https://github.com/JLopes2021';
+    linkedinLink: string = 'https://www.linkedin.com/in/jefferson-lopes-silva/';
+    email: string = 'jeffinho.je8@gmail.com';
 }

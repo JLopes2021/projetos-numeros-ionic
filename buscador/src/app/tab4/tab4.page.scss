@@ -1,0 +1,61 @@
+  @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Kite+One&display=swap');
+/*font-family: 'Bakbak One', cursive;
+font-family: 'Kite One', sans-serif;
+*/
+.profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h1,
+h3 {
+  color: #ffffff;
+  font-family: 'Bakbak One', cursive;
+
+}
+
+p {
+  color: #dcb8b8;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: 'Kite One', sans-serif;
+
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  margin: 0 10px;
+}
+
+img {
+  width: 20vmin;
+  height: 15vmin;
+  transition: transform 0.2s;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+.img_prof{
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  height: 18vmax;
+  width: 15vmax;
+}

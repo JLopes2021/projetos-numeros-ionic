@@ -3,9 +3,12 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 /*font-family: 'Yellowtail', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+/*font-family: 'Oswald', sans-serif;
+*/
 .titles{
   font-family: 'Yellowtail', cursive;
-  color: var(  --ion-color-primary-shade);
+  color: var(  --ion-color-success-shade);
 }
 .itens_p{
   font-family: 'Source Code Pro', monospace;
@@ -14,4 +17,15 @@
 .miniTitle{
   font-family: 'Source Code Pro', monospace;
   font-weight: bold;
+}
+.miniTitleCategory{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: bolder;
+  font-style: italic;
+}
+.category{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-style: oblique;
+  color: var( --ion-color-warning);
 }

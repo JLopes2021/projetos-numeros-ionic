@@ -27,11 +27,11 @@
           <ion-card-content>
             <ion-list class="itens_p" [inset]="true">
               <ion-item>
-                <ion-label>Faça um orçamento.
+                <ion-label class="miniTitle">Faça um orçamento.
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Estabeleça metas para economizar.
+                <ion-label class="miniTitle">Estabeleça metas para economizar.
                 </ion-label>
               </ion-item>
               <ion-item>
@@ -39,25 +39,25 @@
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Evite gastos desnecessários.
+                <ion-label class="miniTitle">Evite gastos desnecessários.
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Fique longe das dívidas.
+                <ion-label class="miniTitle" >Fique longe das dívidas.
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Separe um valor para as despesas anuais.
+                <ion-label class="miniTitle">Separe um valor para as despesas anuais.
 
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Tenha uma reserva para emergências.
+                <ion-label class="miniTitle">Tenha uma reserva para emergências.
 
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Separe as contas pessoais das contas profissionais.
+                <ion-label class="miniTitle">Separe as contas pessoais das contas profissionais.
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -69,9 +69,9 @@
     <ion-item *ngFor="let expense of filteredExpenses">
       <ion-label>
         <h2>{{ expense.title }}</h2>
-        <p class="miniTitle">Valor: {{ expense.valor }}</p>
-        <p class="miniTitle">Data: {{ expense.date }}</p>
-        <p class="miniTitle">Categoria: {{ expense.category }}</p>
+        <p class="miniTitleCategory">Valor: <span class="category">{{ expense.valor }}</span> </p>
+        <p class="miniTitleCategory">Data: <span class="category">{{ expense.date }}</span> </p>
+        <p class="miniTitleCategory">Categoria: <span class="category">{{ expense.category }}</span> </p>
       </ion-label>
     </ion-item>
 

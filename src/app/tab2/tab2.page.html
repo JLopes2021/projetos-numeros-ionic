@@ -5,78 +5,111 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
-  <ion-button expand="fill" (click)="showAlertHelp()">Sobre o Aplicativo</ion-button>
-  <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
-    <ion-select-option value="">Todas as Categorias</ion-select-option>
-    <ion-select-option value="comida">Alimentação</ion-select-option>
-    <ion-select-option value="contas">Contas</ion-select-option>
-    <ion-select-option value="casa">Casa e Decoração</ion-select-option>
-    <ion-select-option value="transporte">Transporte</ion-select-option>
-    <ion-select-option value="outros">Outros</ion-select-option>
-  </ion-select>
 
-  <ion-list class="lista_header">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <h1>Despesas Marcadas</h1>
-          <ion-item class="item_lista" *ngFor="let expense of filteredExpenses">
-            <ion-label>
-              <h2>{{ expense.title }}</h2>
-              <p>Valor: {{ expense.valor }}</p>
-              <p>Data: {{ expense.date }}</p>
-              <p>Categoria: {{ expense.category }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-col>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6">
+        <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
+        <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
+          <ion-select-option value="">All Categories</ion-select-option>
+          <ion-select-option value="comida">Alimentação</ion-select-option>
+          <ion-select-option value="contas">Contas</ion-select-option>
+          <ion-select-option value="casa">Casa e Decoração</ion-select-option>
+          <ion-select-option value="trasnporte">Transporte</ion-select-option>
+        </ion-select>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Dica Master</ion-card-title>
+            <ion-card-subtitle>Direto dos Especialistas</ion-card-subtitle>
+          </ion-card-header>
 
-        <ion-col>
-          <h1>Despesas Variáveis</h1>
-          <ion-item class="item_lista">
-            <ion-label position="floating">O que comprou?</ion-label>
-            <ion-input type="text" [(ngModel)]="newExpenseTitle"></ion-input>
-          </ion-item>
-          <ion-item class="item_lista">
-            <ion-label position="floating">Valor</ion-label>
-            <ion-input type="number" [(ngModel)]="newExpenseAmount"></ion-input>
-          </ion-item>
-          <ion-item class="item_lista">
-            <ion-label position="floating">Categoria</ion-label>
-            <ion-input type="text" [(ngModel)]="newCategory"></ion-input>
-          </ion-item>
-          <ion-button expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Categorias</ion-card-title>
-              <ion-card-subtitle>Aqui você verifica as categorias já definidas</ion-card-subtitle>
-            </ion-card-header>
+          <ion-card-content>
+            <ion-list [inset]="true">
+              <ion-item>
+                <ion-label>Faça um orçamento.
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Estabeleça metas para economizar.
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Restrinja seus gastos do dia a dia.
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Evite gastos desnecessários.
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Fique longe das dívidas.
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Separe um valor para as despesas anuais.
 
-            <ion-card-content>
-              Caso você nao queira apertar o botão lá em cima, basta ler aqui: <br>
-              Utilize as categorias: Casa, Contas, Comida, Transporte, Outros
-            </ion-card-content>
-          </ion-card>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Tenha uma reserva para emergências.
 
-        </ion-col>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Separe as contas pessoais das contas profissionais.
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="6">
+        <h1>Despesas Marcadas</h1>
+    <ion-item *ngFor="let expense of filteredExpenses">
+      <ion-label>
+        <h2>{{ expense.title }}</h2>
+        <p>Valor: {{ expense.valor }}</p>
+        <p>Data: {{ expense.date }}</p>
+        <p>Categoria: {{ expense.category }}</p>
+      </ion-label>
+    </ion-item>
 
-        <ion-col>
-          <ion-card>
-            <h1>Valores Finais</h1>
-            <div class="total-section">
-              <p>Total de despesas: {{ totalExpenses }}</p>
-              <p>Valor restante: {{ remainingAmount }}</p>
-            </div>
-          </ion-card>
+    <h1>Despesas Variáveis</h1>
+    <ion-item>
+      <ion-label position="floating">O que comprou?</ion-label>
+      <ion-input type="text" [(ngModel)]="newExpenseTitle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="number" [(ngModel)]="newExpenseAmount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Categoria</ion-label>
+      <ion-input type="text" [(ngModel)]="newCategory"></ion-input>
+      <ion-button expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
 
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list>
-  <div class="chart-container">
-    <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
+    </ion-item>
 
-  </div>
+      </ion-col>
+      <ion-col size-md="12">
+        <h1>Saldos</h1>
+
+        <ion-list>
+          <div class="total-section">
+            <p>Total de despesas: {{ totalExpenses }}</p>
+            <p>Salário sobrando: {{ remainingAmount }}</p>
+          </div>
+          <p>Total Gasto: {{ totalExpenses }}</p>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
 </ion-content>
+
+

@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col size-md="6">
         <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
-        <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
+        <ion-select class="itens_p" [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
           <ion-select-option value="">All Categories</ion-select-option>
           <ion-select-option value="comida">Alimentação</ion-select-option>
           <ion-select-option value="contas">Contas</ion-select-option>
@@ -25,7 +25,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            <ion-list [inset]="true">
+            <ion-list class="itens_p" [inset]="true">
               <ion-item>
                 <ion-label>Faça um orçamento.
                 </ion-label>
@@ -65,40 +65,40 @@
         </ion-card>
       </ion-col>
       <ion-col size-md="6">
-        <h1>Despesas Marcadas</h1>
+        <h1 class="titles">Despesas Marcadas</h1>
     <ion-item *ngFor="let expense of filteredExpenses">
       <ion-label>
         <h2>{{ expense.title }}</h2>
-        <p>Valor: {{ expense.valor }}</p>
-        <p>Data: {{ expense.date }}</p>
-        <p>Categoria: {{ expense.category }}</p>
+        <p class="miniTitle">Valor: {{ expense.valor }}</p>
+        <p class="miniTitle">Data: {{ expense.date }}</p>
+        <p class="miniTitle">Categoria: {{ expense.category }}</p>
       </ion-label>
     </ion-item>
 
-    <h1>Despesas Variáveis</h1>
+    <h1 class="titles">Despesas Variáveis</h1>
     <ion-item>
-      <ion-label position="floating">O que comprou?</ion-label>
-      <ion-input type="text" [(ngModel)]="newExpenseTitle"></ion-input>
+      <ion-label class="miniTitle" position="floating">O que comprou?</ion-label>
+      <ion-input class="miniTitle" type="text" [(ngModel)]="newExpenseTitle"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Valor</ion-label>
-      <ion-input type="number" [(ngModel)]="newExpenseAmount"></ion-input>
+      <ion-label class="miniTitle" position="floating">Valor</ion-label>
+      <ion-input class="miniTitle" type="number" [(ngModel)]="newExpenseAmount"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Categoria</ion-label>
-      <ion-input type="text" [(ngModel)]="newCategory"></ion-input>
-      <ion-button expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
+      <ion-label class="miniTitle" position="floating">Categoria</ion-label>
+      <ion-input class="miniTitle" type="text" [(ngModel)]="newCategory"></ion-input>
+      <ion-button class="miniTitle" expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
 
     </ion-item>
 
       </ion-col>
       <ion-col size-md="12">
-        <h1>Saldos</h1>
+        <h1 class="titles">Saldos</h1>
 
         <ion-list>
           <div class="total-section">
-            <p>Total de despesas: {{ totalExpenses }}</p>
-            <p>Salário sobrando: {{ remainingAmount }}</p>
+            <p class="miniTitle">Total de despesas: {{ totalExpenses }}</p>
+            <p class="miniTitle">Salário sobrando: {{ remainingAmount }}</p>
           </div>
           <p>Total Gasto: {{ totalExpenses }}</p>
 

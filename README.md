@@ -6,4 +6,5 @@ Em funcionamento com as quatro operações básicas, radiciação e inserção d
 
 # Analise de Gastos 
 O usuario pode trabalhar com a ideia de agenda de gastos relacionados a um salário mínimo 
-OBS: Ainda possui alguns erros de execução e formatação, ainda está em fase de testes de funcionalidade. [:)]
+O aplicativo passou por uma análise de formatação, agora está em fases finais de produção de conteúdo
+Após a produção do conteúdo, ele será estilizado através do Sass.

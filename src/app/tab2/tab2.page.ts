@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
 interface Expense {
   title: string;
   valor: number;
@@ -13,16 +12,15 @@ interface Expense {
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
 
   handlerMessage = '';
   roleMessage = '';
 
   expenses: Expense[] = [
-    { title: 'Lanches', valor: 15, date: '2023-06-20', category: 'comida' },
-    { title: 'Gas', valor: 50, date: '2023-06-19', category: 'transporte' },
-    { title: 'Aluguel', valor: 1000, date: '2023-06-18', category: 'casa-decoracao' },
-    // Add more sample expenses
+    { title: 'Compra do Mês', valor: 450, date: '2023-06-20', category: 'comida' },
+    { title: 'Água', valor: 35, date: '2023-06-19', category: 'contas' },
+    { title: 'Luz', valor: 97, date: '2023-06-19', category: 'contas' },
   ];
 
   filteredExpenses: Expense[] = [];
@@ -32,9 +30,15 @@ export class Tab2Page {
   newExpenseTitle: string = '';
   newExpenseAmount: number = 0;
   newCategory: string = '';
+  totalExpenses: number = 0;
+  remainingAmount: number = 0;
 
   constructor(private alertController: AlertController) {
     this.filteredExpenses = this.expenses;
+  }
+
+  ngOnInit() {
+    this.calculateTotalExpenses();
   }
 
   filterExpenses() {
@@ -43,15 +47,12 @@ export class Tab2Page {
       const matchesCategory = this.selectedCategory ? expense.category === this.selectedCategory : true;
       return matchesSearchTerm && matchesCategory;
     });
+    this.calculateTotalExpenses();
   }
 
-  get totalExpenses(): number {
-    return this.filteredExpenses.reduce((total, expense) => total + expense.valor, 0);
-  }
-
-  get remainingAmount(): number {
-    const remaining = this.salary - this.totalExpenses;
-    return remaining;
+  calculateTotalExpenses() {
+    this.totalExpenses = this.filteredExpenses.reduce((total, expense) => total + expense.valor, 0);
+    this.remainingAmount = this.salary - this.totalExpenses;
   }
 
   addExpense() {
@@ -70,20 +71,13 @@ export class Tab2Page {
     this.newExpenseAmount = 0;
   }
 
-
-  async showExceededSalaryAlert() {
+  async showAlertHelp() {
     const alert = await this.alertController.create({
-      header: 'Gastou mais do que ganha! Enfim, eis o Brasil!',
-      message: 'Por favor, reveja as suas despesas.',
+      header: 'Olá, tudo certo?',
+      message: 'Esse aplicativo vem para ajudar você nas contas das despesas. \n Utilize as categorias: Casa, Contas, Comida, Transporte, Outros',
       buttons: ['OK']
     });
 
     await alert.present();
-  }
-
-  ionViewDidEnter() {
-    if (this.totalExpenses > this.salary) {
-      this.showExceededSalaryAlert();
-    }
   }
 }

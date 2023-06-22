@@ -8,3 +8,14 @@
   text-orientation: upright;
 
 }
+.lista_header, .item_lista{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+}

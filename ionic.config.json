@@ -1,7 +1,7 @@
 {
-  "name": "buscador",
+  "name": "projNumeros",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }

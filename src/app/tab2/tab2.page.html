@@ -1,42 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Leitor de Dados
+      Gastos financeiros - Salário Mínimo
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
+  <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
+    <ion-select-option value="">All Categories</ion-select-option>
+    <ion-select-option value="comida">Alimentação</ion-select-option>
+    <ion-select-option value="trasporte">Transporte</ion-select-option>
+    <ion-select-option value="casa-decoracao">Casa e Decoração</ion-select-option>
+    <!-- Add more options for categories -->
+  </ion-select>
+  <ion-list>
+    <ion-item *ngFor="let expense of filteredExpenses">
+      <ion-label>
+        <h2>{{ expense.title }}</h2>
+        <p>Amount: {{ expense.valor }}</p>
+        <p>Date: {{ expense.date }}</p>
+        <p>Category: {{ expense.category }}</p>
 
-<ion-content [fullscreen]="true">
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nome do que comprou</ion-label>
+      <ion-input type="text" [(ngModel)]="newExpenseTitle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="number" [(ngModel)]="newExpenseAmount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Categori</ion-label>
+      <ion-input type="text" [(ngModel)]="newCategory"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="addExpense()" (click)="showExceededSalaryAlert()">Coloque mais despesas</ion-button>
 
-  <p class="reforma">
-    Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-    </p>
+    <div class="total-section">
+      <p>Total de despesas: {{ totalExpenses }}</p>
+      <p>Salário sobrando: {{ remainingAmount }}</p>
+    </div>
+    <p>Total Gasto: {{ totalExpenses }}</p>
 
-    <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
-      <p class="reforma">
-      Estamos em reforma para melhor te atender, <em><b>me deixa codar!</b></em><br>&nbsp;&nbsp;&nbsp;&nbsp;
-      </p>
+  </ion-list>
 </ion-content>

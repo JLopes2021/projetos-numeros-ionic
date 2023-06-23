@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Gastos financeiros - Salário Mínimo
+      Gastos financeiros -> Salário Sobrando R$ {{ remainingAmount }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,10 +17,12 @@
           <ion-select-option value="contas">Contas</ion-select-option>
           <ion-select-option value="casa">Casa e Decoração</ion-select-option>
           <ion-select-option value="trasnporte">Transporte</ion-select-option>
+          <ion-select-option value="outros">Outros</ion-select-option>
+
         </ion-select>
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Dica Master</ion-card-title>
+            <ion-card-title class="titles">Dica Master</ion-card-title>
             <ion-card-subtitle>Direto dos Especialistas</ion-card-subtitle>
           </ion-card-header>
 
@@ -35,7 +37,7 @@
                 </ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>Restrinja seus gastos do dia a dia.
+                <ion-label class="miniTitle">Restrinja seus gastos do dia a dia.
                 </ion-label>
               </ion-item>
               <ion-item>
@@ -78,15 +80,15 @@
     <h1 class="titles">Despesas Variáveis</h1>
     <ion-item>
       <ion-label class="miniTitle" position="floating">O que comprou?</ion-label>
-      <ion-input class="miniTitle" type="text" [(ngModel)]="newExpenseTitle"></ion-input>
+      <ion-input class="category" type="text" [(ngModel)]="newExpenseTitle"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="miniTitle" position="floating">Valor</ion-label>
-      <ion-input class="miniTitle" type="number" [(ngModel)]="newExpenseAmount"></ion-input>
+      <ion-input class="category" type="number" [(ngModel)]="newExpenseAmount"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="miniTitle" position="floating">Categoria</ion-label>
-      <ion-input class="miniTitle" type="text" [(ngModel)]="newCategory"></ion-input>
+      <ion-input class="category" type="text" [(ngModel)]="newCategory"></ion-input>
       <ion-button class="miniTitle" expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
 
     </ion-item>
@@ -97,10 +99,10 @@
 
         <ion-list>
           <div class="total-section">
-            <p class="miniTitle">Total de despesas: {{ totalExpenses }}</p>
-            <p class="miniTitle">Salário sobrando: {{ remainingAmount }}</p>
+            <p class="miniTitleCategory">Total de despesas: <span class="category"> {{ totalExpenses }}</span></p>
+            <p class="miniTitleCategory">Salário sobrando: <span class="category"> {{ remainingAmount }}</span></p>
           </div>
-          <p>Total Gasto: {{ totalExpenses }}</p>
+          <p class="miniTitleCategory">Total Gasto: <span class="category"> {{ totalExpenses }} </span> </p>
 
         </ion-list>
       </ion-col>

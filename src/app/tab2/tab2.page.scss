@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-/*font-family: 'Source Code Pro', monospace;
-*/
+/*font-family: 'Source Code Pro', monospace;*/
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 /*font-family: 'Yellowtail', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-/*font-family: 'Oswald', sans-serif;
-*/
+/*font-family: 'Oswald', sans-serif;*/
+
 .titles{
   font-family: 'Yellowtail', cursive;
   color: var(  --ion-color-success-shade);
@@ -17,6 +16,7 @@
 .miniTitle{
   font-family: 'Source Code Pro', monospace;
   font-weight: bold;
+  color: var( --ion-color-dark-contrast);
 }
 .miniTitleCategory{
   font-family: 'Source Code Pro', monospace;
@@ -27,5 +27,10 @@
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
   font-style: oblique;
-  color: var( --ion-color-warning);
+  color: var( --ion-color-tertiary);
+  text-shadow:
+               -0.5px -0.5px 0px #000000,
+               -0.5px 0.5px 0px #000000,
+               0.5px -0.5px 0px #000000,
+               0.5px 0px 0px #000000;
 }

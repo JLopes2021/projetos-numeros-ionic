@@ -10,61 +10,16 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6">
-        <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
+        <ion-searchbar class="search" [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
         <ion-select class="itens_p" [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
-          <ion-select-option value="">All Categories</ion-select-option>
-          <ion-select-option value="comida">Alimentação</ion-select-option>
-          <ion-select-option value="contas">Contas</ion-select-option>
-          <ion-select-option value="casa">Casa e Decoração</ion-select-option>
-          <ion-select-option value="trasnporte">Transporte</ion-select-option>
-          <ion-select-option value="outros">Outros</ion-select-option>
+          <ion-select-option id="option_category" value="">Todos</ion-select-option>
+          <ion-select-option id="option_category" value="comida">Alimentação</ion-select-option>
+          <ion-select-option id="option_category" value="contas">Contas</ion-select-option>
+          <ion-select-option id="option_category" value="casa">Casa e Decoração</ion-select-option>
+          <ion-select-option id="option_category" value="trasnporte">Transporte</ion-select-option>
+          <ion-select-option id="option_category" value="outros">Outros</ion-select-option>
 
         </ion-select>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title class="titles">Dica Master</ion-card-title>
-            <ion-card-subtitle>Direto dos Especialistas</ion-card-subtitle>
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-list class="itens_p" [inset]="true">
-              <ion-item>
-                <ion-label class="miniTitle">Faça um orçamento.
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Estabeleça metas para economizar.
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Restrinja seus gastos do dia a dia.
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Evite gastos desnecessários.
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle" >Fique longe das dívidas.
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Separe um valor para as despesas anuais.
-
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Tenha uma reserva para emergências.
-
-                </ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label class="miniTitle">Separe as contas pessoais das contas profissionais.
-                </ion-label>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
       </ion-col>
       <ion-col size-md="6">
         <h1 class="titles">Despesas Marcadas</h1>
@@ -106,6 +61,52 @@
 
         </ion-list>
       </ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titles">Dica Master</ion-card-title>
+          <ion-card-subtitle>Direto dos Especialistas</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list class="itens_p" [inset]="true">
+            <ion-item>
+              <ion-label class="miniTitle">Faça um orçamento.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Estabeleça metas para economizar.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Restrinja seus gastos do dia a dia.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Evite gastos desnecessários.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle" >Fique longe das dívidas.
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Separe um valor para as despesas anuais.
+
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Tenha uma reserva para emergências.
+
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label class="miniTitle">Separe as contas pessoais das contas profissionais.
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+
     </ion-row>
   </ion-grid>
 

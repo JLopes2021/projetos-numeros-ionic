@@ -11,6 +11,7 @@
 }
 .itens_p{
   font-family: 'Source Code Pro', monospace;
+  color: var( --ion-color-dark-contrast);
 }
 
 .miniTitle{
@@ -33,4 +34,12 @@
                -0.5px 0.5px 0px #000000,
                0.5px -0.5px 0px #000000,
                0.5px 0px 0px #000000;
+}
+
+#option_category{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: bold;
+  color: var( --ion-color-dark-contrast);
+  font-style: italic;
+  text-decoration: dashed;
 }

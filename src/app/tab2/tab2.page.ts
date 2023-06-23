@@ -80,4 +80,5 @@ export class Tab2Page implements OnInit {
 
     await alert.present();
   }
+
 }

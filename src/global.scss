@@ -24,3 +24,89 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+/*Customização do Alert*/
+.alert_inicial{
+  --background: #000000!important;
+  --border-radius:5px!important;
+}
+
+//page 2
+page-tab2 {
+
+  ion-header {
+    ion-toolbar {
+      --background: #000;
+      ion-title {
+        font-family: 'Yellowtail', cursive;
+        color: #b1cbff;
+        ion-img {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  ion-content {
+    --background: #000;
+
+    ion-grid {
+      ion-searchbar.search {
+        --background: #fff;
+        --color: #000;
+      }
+
+      ion-select.itens_p {
+        --background: #fff;
+        --color: #000;
+        --placeholder-color: #b1cbff;
+        --placeholder-opacity: 1;
+        --icon-color: #b1cbff;
+        --icon-opacity: 1;
+        --selected-text-color: #b1cbff;
+        --selected-item-background: #b1cbff;
+        --selected-item-color: #000;
+      }
+
+      ion-item {
+        --background: #000;
+        ion-label {
+          font-family: 'Source Code Pro', monospace;
+          color: #f6f9ff;
+          h2 {
+            color: #b1cbff;
+          }
+        }
+      }
+
+      section.saldos, section.despesas_variaveis {
+        border: 2px solid #b1cbff;
+      }
+
+      ion-card {
+        --background: #000;
+        ion-card-header {
+          ion-card-title.titles {
+            font-family: 'Yellowtail', cursive;
+            color: #b1cbff;
+          }
+        }
+        ion-card-content {
+          ion-list.itens_p[inset=true] {
+            ion-item {
+              ion-label.miniTitle {
+                font-family: 'Source Code Pro', monospace;
+                font-weight: bold;
+                color: #b1cbff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}

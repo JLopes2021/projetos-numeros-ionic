@@ -1,26 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Salário Sobrando R$ {{ remainingAmount }}</ion-title>
+    <ion-title>
+      <!-- Título do cabeçalho -->
+      Salário Sobrando R$ {{ remainingAmount.toFixed(2) }}
+      <ion-img class="img"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIt48nRKEoUxtPRlT7L4r73woxeUWyDLSwuRaI0NgKxMfmcLAapTmcO3zf1NmTAdjonpnvs-P7SW3EwPLrmeOF08J2AF4Gx--PJzloo6sSeom2J59eYt3PLvdNFZ9Ts9jRQuAxjtMjDcmKJD4TSMc8POYjN6Lp8XEMDbymD9ygyEsUT95l0Dr-CgIxZQ8Y/s1600/favico.png"
+        alt="The Wisconsin State Capitol building in Madison, WI at night">
+      </ion-img>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-grid>
+    <ion-searchbar class="search" [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
+    <ion-select class="itens_p" [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
+      <!-- Opções do seletor de categorias -->
+      <ion-select-option id="option_category" value="">Todas Categorias</ion-select-option>
+      <ion-select-option id="option_category" value="comida">Alimentação</ion-select-option>
+      <ion-select-option id="option_category" value="contas">Contas</ion-select-option>
+      <ion-select-option id="option_category" value="casa">Casa</ion-select-option>
+      <ion-select-option id="option_category" value="trasnporte">Transporte</ion-select-option>
+      <ion-select-option id="option_category" value="outros">Outros</ion-select-option>
+    </ion-select>
     <ion-row>
       <ion-col size-md="6">
-        <ion-searchbar class="search" [(ngModel)]="searchTerm" (ionChange)="filterExpenses()"></ion-searchbar>
-        <ion-select class="itens_p" [(ngModel)]="selectedCategory" (ionChange)="filterExpenses()">
-          <ion-select-option id="option_category" value="">Todos</ion-select-option>
-          <ion-select-option id="option_category" value="comida">Alimentação</ion-select-option>
-          <ion-select-option id="option_category" value="contas">Contas</ion-select-option>
-          <ion-select-option id="option_category" value="casa">Casa e Decoração</ion-select-option>
-          <ion-select-option id="option_category" value="trasnporte">Transporte</ion-select-option>
-          <ion-select-option id="option_category" value="outros">Outros</ion-select-option>
-        </ion-select>
-      </ion-col>
-
-      <ion-col size-md="6">
-        <h1 class="titles">Despesas Marcadas</h1>
+        <h1 class="titles">Despesas do Mês</h1>
+        <!-- Lista de despesas -->
         <ion-item *ngFor="let expense of filteredExpenses">
           <ion-label>
             <h2>{{ expense.title }}</h2>
@@ -29,34 +34,39 @@
             <p class="miniTitleCategory">Categoria: <span class="category">{{ expense.category }}</span></p>
           </ion-label>
         </ion-item>
-
-        <h1 class="titles">Despesas Variáveis</h1>
-        <ion-item>
-          <ion-label class="miniTitle" position="floating">O que comprou?</ion-label>
-          <ion-input maxlength="15" class="category" type="text" [(ngModel)]="newExpenseTitle"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="miniTitle" position="floating">Valor</ion-label>
-          <ion-input maxlength="8" class="category" type="number" [(ngModel)]="newExpenseAmount"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="miniTitle" position="floating">Categoria</ion-label>
-          <ion-input class="category" maxlength="15" type="text" [(ngModel)]="newCategory"></ion-input>
-          <ion-button class="miniTitle" expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
-        </ion-item>
       </ion-col>
-
+      <!-- Coluna 1 Final -->
       <ion-col size-md="12">
         <h1 class="titles">Saldos</h1>
-        <ion-list>
-          <div class="total-section">
-            <p class="miniTitleCategory">Total de despesas: <span class="category">{{ totalExpenses }}</span></p>
-            <p class="miniTitleCategory">Salário sobrando: <span class="category">{{ remainingAmount }}</span></p>
-          </div>
-          <p class="miniTitleCategory">Total Gasto: <span class="category">{{ totalExpenses }}</span></p>
-        </ion-list>
+        <section class="saldos">
+          <!-- Seção de saldos -->
+          <ion-list>
+            <div class="total-section">
+              <p class="miniTitleCategory">Total de despesas: <span class="category">{{ totalExpenses }}</span></p>
+              <p class="miniTitleCategory">Salário sobrando: <span class="category">{{ remainingAmount }}</span></p>
+            </div>
+            <p class="miniTitleCategory">Total Gasto: <span class="category">{{ totalExpenses }}</span></p>
+          </ion-list>
+        </section>
+        <h1 class="titles">Despesas Variáveis</h1>
+        <section class="despesas_variaveis">
+          <!-- Seção de despesas variáveis -->
+          <ion-item>
+            <ion-label class="miniTitle" position="floating">O que comprou?</ion-label>
+            <ion-input class="category" placeholder="Coloque o nome..." maxlength="15" required="true" type="text" [(ngModel)]="newExpenseTitle"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="miniTitle" position="floating">Valor</ion-label>
+            <ion-input class="category" maxlength="8" type="number" [(ngModel)]="newExpenseAmount"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="miniTitle" position="floating">Categoria</ion-label>
+            <ion-input class="category" placeholder="Coloque o nome..." maxlength="15" required="true" type="text" [(ngModel)]="newCategory"></ion-input>
+            <ion-button class="miniTitle" color="danger" expand="fill" (click)="addExpense()">Coloque mais despesas</ion-button>
+          </ion-item>
+        </section>
       </ion-col>
-
+      <!-- Coluna 2 Final -->
       <ion-col size-md="12">
         <ion-card>
           <ion-card-header>
@@ -65,6 +75,7 @@
           </ion-card-header>
           <ion-card-content>
             <ion-list class="itens_p" [inset]="true">
+              <!-- Lista de dicas -->
               <ion-item>
                 <ion-label class="miniTitle">Faça um orçamento.</ion-label>
               </ion-item>
@@ -95,4 +106,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+   <!-- Final do Grid -->
 </ion-content>

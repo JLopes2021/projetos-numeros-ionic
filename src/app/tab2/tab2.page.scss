@@ -4,42 +4,150 @@
 /*font-family: 'Yellowtail', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 /*font-family: 'Oswald', sans-serif;*/
-
-.titles{
-  font-family: 'Yellowtail', cursive;
-  color: var(  --ion-color-success-shade);
+/* Estilos para ion-header */
+ion-header ion-toolbar {
+  background-color: #1a237e;
 }
+
+ion-header ion-toolbar ion-title {
+  font-family: 'Yellowtail', cursive;
+  color: #ffffff;
+}
+
+ion-header ion-toolbar ion-img {
+  height: 20px;
+  width: 20px;
+}
+
 .itens_p{
   font-family: 'Source Code Pro', monospace;
-  color: var( --ion-color-dark-contrast);
+  color: #f6f9ff;
+
 }
 
 .miniTitle{
   font-family: 'Source Code Pro', monospace;
   font-weight: bold;
-  color: var( --ion-color-dark-contrast);
+  color: #b1cbff;
 }
 .miniTitleCategory{
   font-family: 'Source Code Pro', monospace;
   font-weight: bolder;
   font-style: italic;
+  color: #b1cbff;
+
 }
 .category{
   font-family: 'Oswald', sans-serif;
-  font-weight: 400;
+  font-weight: bold;
+  font-size: vmin;
   font-style: oblique;
-  color: var( --ion-color-tertiary);
-  text-shadow:
-               -0.5px -0.5px 0px #000000,
-               -0.5px 0.5px 0px #000000,
-               0.5px -0.5px 0px #000000,
-               0.5px 0px 0px #000000;
+  color: #b1cbff;
+  }
+
+  .despesas_variaveis, .saldos, .cards, .despesas_marcadas{
+    border: 2px solid #b1cbff;
+  }
+
+.img{
+  height: 20px;
+  width: 20px;
+}
+.label_title{
+  margin-left: calc(2vmin + 10px);
+  color: #b1cbff;
+
+}
+.salario_restante{
+ font-size: large;
+ font-style: italic;
+ color: #b1cbff;
+
+}
+/* Estilos para ion-header */
+ion-header ion-toolbar {
+  background-color: #1a237e;
 }
 
-#option_category{
+ion-header ion-toolbar ion-title {
+  font-family: 'Yellowtail', cursive;
+  color: #ffffff;
+}
+
+ion-header ion-toolbar ion-img {
+  height: 20px;
+  width: 20px;
+}
+
+/* Estilos para ion-content */
+ion-content {
+  background-color: #f3f5f9;
+}
+
+ion-content ion-searchbar.search {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+ion-content ion-select.itens_p {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+ion-content ion-select.itens_p::placeholder {
+  color: #757575;
+}
+
+ion-content ion-select.itens_p::placeholder-opacity {
+  color: #b1cbff;
+  opacity: 1;
+}
+
+ion-content ion-select.itens_p::part(icon) {
+  color: #757575;
+  opacity: 1;
+}
+
+ion-content ion-select.itens_p::part(selected-text) {
+  color: #ffffff;
+}
+
+ion-content ion-select.itens_p::part(selected-item) {
+  background-color: #1a237e;
+  color: #ffffff;
+}
+
+ion-content ion-item {
+  background-color: #ffffff;
+}
+
+ion-content ion-item ion-label {
   font-family: 'Source Code Pro', monospace;
-  font-weight: bold;
-  color: var( --ion-color-dark-contrast);
-  font-style: italic;
-  text-decoration: dashed;
+  color: #93deff;
+}
+
+ion-content ion-item ion-label h2 {
+  color: #1a237e;
+}
+
+ion-content section.saldos,
+ion-content section.despesas_variaveis {
+  border: 2px solid #1a237e;
+}
+
+ion-content ion-card {
+  background-color: #ffffff;
+}
+
+ion-content ion-card ion-card-header ion-card-title.titles {
+  font-family: 'Yellowtail', cursive;
+  color: #1a237e;
+}
+
+ion-content ion-card ion-card-content ion-list.itens_p[inset=true] ion-item {
+  ion-label.miniTitle {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    color: #1a237e;
+  }
 }
